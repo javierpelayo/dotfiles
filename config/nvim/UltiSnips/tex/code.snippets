@@ -1,0 +1,92 @@
+snippet pseudo "Code block environment - pseudocode" b
+\begin{pseudo}{$1}
+$0
+\end{pseudo}
+endsnippet
+
+snippet code "Code block environment - Actual Code" b
+\begin{code}{$1}
+$0
+\end{code}
+endsnippet
+
+snippet apseudo "Analyze an algorithm in psuedocode w/ cost per line and number of times it's ran, $1 is frame-title, $2 is function title" b
+\begin{frm}{Analyze Pseudocode}
+    \begin{tabular}{p{0.6\linewidth}p{0.4\linewidth}}
+			\begin{pseudonf}{Input: $2}{Output: $3}
+				$0
+			\end{pseudonf}
+			& \vspace*{1.30cm}
+			\begin{tabular}{p{0.2\linewidth}p{0.3\linewidth}}
+        Cost & Time \\
+			\end{tabular} 
+    \end{tabular} 
+\end{frm}
+endsnippet
+
+snippet acode "Analyze a code block in a specified language, with cost per line and number of times that line is ran" b
+\begin{frm}{Analyze Code - $1}
+    \begin{tabular}{p{0.6\linewidth}p{0.4\linewidth}}
+			\begin{codenf}{$2}{$3}
+				$0
+			\end{codenf}
+			& \vspace*{0.50cm}
+			\begin{tabular}{p{0.2\linewidth}p{0.3\linewidth}}
+        Cost & Time \\
+			\end{tabular} 
+    \end{tabular} 
+\end{frm}
+endsnippet
+
+snippet pseudonf "Pseudocode block without frame" b
+\begin{pseudonf}{$1}
+$0
+\end{pseudonf}
+endsnippet
+
+snippet codenf "Code block without frame" b
+\begin{codenf}{$1}
+$0
+\end{codenf}
+endsnippet
+
+snippet cfor "Pseudocode" i
+|\cfor|
+endsnippet
+
+snippet cin "Pseudocode in" i
+|\cin|
+endsnippet
+
+snippet cto "Pseudo to" i
+|\cto|
+endsnippet
+
+snippet cwhile "Pseudo while" i
+|\cwhile|
+endsnippet
+
+snippet cif "Pseudo if" i
+|\cif|
+endsnippet
+
+snippet celse "Pseudo else" i
+|\celse|
+endsnippet
+
+snippet cthen "Pseudo then" i
+|\cthen|
+endsnippet
+
+snippet clet "Pseudo let" i
+|\clet|
+endsnippet
+
+snippet cand "Pseudo and" i
+|\cand|
+endsnippet
+
+snippet creturn "Pseudo return" i
+|\creturn|
+endsnippet
+

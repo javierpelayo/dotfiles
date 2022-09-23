@@ -1,0 +1,5 @@
+ftplugin directory is for specific filetypes, similar to the init.vim file but only for specific files, the init.vim in in the main nvim directory is global i.e. for all filetypes.
+
+UltiSnips directory also has the same specificity, this is a snippets directory that will only load snippets for specific filetypes.
+
+
