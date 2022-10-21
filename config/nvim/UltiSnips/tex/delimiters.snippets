@@ -47,7 +47,14 @@ snippet "(^|[^\w\$\)\}])'"  "single quotation marks" rA
 `!p snip.rv = match.group(1)`'${1:${VISUAL:}}'$0
 endsnippet
 
-snippet | "Double Pipe, mainly for minted environment to escape latex" b
+snippet | "Double Pipe, mainly for minted environment to escape latex" i
 |$1|
 endsnippet
+
+snippet \< "Angle Delimiters" i
+\langle \ $1\  \rangle $0
+endsnippet
+
+
+
 

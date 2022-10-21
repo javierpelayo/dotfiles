@@ -57,3 +57,5 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Return to Terminal in normal mode
 tnoremap <Esc> <C-\><C-n>
+
+let g:vimtex_indent_ignored_envs = ['document', 'equation', 'array', 'tabular']

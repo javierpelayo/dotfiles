@@ -1,6 +1,6 @@
 priority 10
 
-snippet "(^|[^a-zA-Z\\])mm" "Inline math $ $" rA
+snippet "(^|[^a-zA-Z\\])mm" "Inline math $ $" rA 
 `!p snip.rv = match.group(1)`\$${1:${VISUAL:}}\$$0
 endsnippet
 
@@ -163,3 +163,29 @@ snippet note "Note Box" b
 $0
 \end{note}
 endsnippet
+
+snippet qs "Question Box" b
+\begin{question}
+$0
+\end{quesiton}
+endsnippet
+
+snippet prop "Proposition box" b
+\begin{proposition}{$1}
+$0
+\end{proposition}
+endsnippet
+
+snippet axiom "Axiom Box" b
+\begin{axiom}{$1}
+$0
+\end{axiom}
+endsnippet
+
+snippet fright "Flush right text env" b
+\begin{flushright}
+$1
+\end{flushright}
+$0
+endsnippet
+

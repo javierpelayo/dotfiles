@@ -45,10 +45,10 @@ snippet JJ "j subscript (because snippet move forward key is jk)" iA
 _{j}
 endsnippet
 
-context "math()"
-snippet "([^a-zA-Z])ee" "e^{} supercript" rA
-`!p snip.rv = match.group(1)`e^{${1:${VISUAL:}}} $0
-endsnippet
+# context "math()"
+# snippet "([^a-zA-Z])ee" "e^{} supercript" rA
+# `!p snip.rv = match.group(1)`e^{${1:${VISUAL:}}} $0
+# endsnippet
 
 context "math()"
 snippet "([\w]|[\}\)\]\|'])([-+]{2})" "Automatic +/- subscript" rA
@@ -131,17 +131,17 @@ snippet "ss" "Line segment (assumes a user-defined macro)" A
 `!p snip.rv = match.group(1)`\linesegment{${1:${VISUAL:}}}$0
 endsnippet
 
-snippet "([\W_\\])cc" "Complex conjugate (assumes a user-defined macro)" rA
-`!p snip.rv = match.group(1)`\conjugate{${1:${VISUAL:}}}$0
-endsnippet
+# snippet "([\W_\\])cc" "Complex conjugate (assumes a user-defined macro)" rA
+# `!p snip.rv = match.group(1)`\conjugate{${1:${VISUAL:}}}$0
+# endsnippet
 
-snippet "([^a-zA-Z\\])d" "\dot" r
-`!p snip.rv = match.group(1)`\dot{${1:${VISUAL:}}}$0
-endsnippet
-
-snippet "([^a-zA-Z\\])dd" "\ddot" r
-`!p snip.rv = match.group(1)`\ddot{${1:${VISUAL:}}}$0
-endsnippet
+# snippet "([^a-zA-Z\\])d" "\dot" r
+# `!p snip.rv = match.group(1)`\dot{${1:${VISUAL:}}}$0
+# endsnippet
+# 
+# snippet "([^a-zA-Z\\])dd" "\ddot" r
+# `!p snip.rv = match.group(1)`\ddot{${1:${VISUAL:}}}$0
+# endsnippet
 
 snippet "([^a-zA-Z\\])pV" "\pdv{}" rA
 `!p snip.rv = match.group(1)`\pdvOne{${1:${VISUAL:}}} $0
@@ -167,7 +167,7 @@ snippet "([^a-zA-Z\\])([dD])vv" "\dv{}{} or \Dv{}{}" rA
 `!p snip.rv = match.group(1)`\\`!p snip.rv = match.group(2)`v{$1}{$2} $0
 endsnippet
 
-snippet "([^a-zA-Z\\])ddv" "\dv[]{}{}" rA
+snippet "([^a-zA-Z\\])ddv" "\dv[]{}{} - Number Theory div" rA
 `!p snip.rv = match.group(1)`\dv[$1]{$2}{$3} $0
 endsnippet
 
@@ -281,27 +281,27 @@ endsnippet
 
 # BEGIN STATIC TEXT
 # ------------------------------------- #
-context "math()"
-snippet and "static snippet: quad-spaced 'and' in equation" A
-\quad \text{and} \quad $0
-endsnippet
-
-snippet forall "static snippet: 'for all'  text in equation" A
-\text{ for all } $0
-endsnippet
-
-snippet forw "static snippet: 'for which'  text in equation" A
-\text{ for which } $0
-endsnippet
-
-snippet forwhich "static snippet: 'for all'  text in equation" A
-\text{ for which } $0
-endsnippet
-
-context "math()"
-snippet else "\text{otherwise}" A
-\text{otherwise}
-endsnippet
+# context "math()"
+# snippet and "static snippet: quad-spaced 'and' in equation" A
+# \quad \text{and} \quad $0
+# endsnippet
+# 
+# snippet forall "static snippet: 'for all'  text in equation" A
+# \text{ for all } $0
+# endsnippet
+# 
+# snippet forw "static snippet: 'for which'  text in equation" A
+# \text{ for which } $0
+# endsnippet
+# 
+# snippet forwhich "static snippet: 'for all'  text in equation" A
+# \text{ for which } $0
+# endsnippet
+# 
+# context "math()"
+# snippet else "\text{otherwise}" A
+# \text{otherwise}
+# endsnippet
 # ------------------------------------- #
 # END STATIC TEXT
 
@@ -317,17 +317,12 @@ snippet "([\W_])intf" "Integral from negative to positive infinity" rA
 `!p snip.rv = match.group(1)`\int_{-\infty}^{\infty} 
 endsnippet
 
-context "math()"
-snippet >> "\implies" Ai
-\implies 
-endsnippet
-
 snippet lra "\leftrightarrow" A
 \leftrightarrow 
 endsnippet
 
 context "math()"
-snippet "([^a-zA-Z0-9\\])df" "\diff" rA
+snippet "([^a-zA-Z0-9\\])df" "\diff - differential" rA
 `!p snip.rv = match.group(1)`\diff 
 endsnippet
 
@@ -343,27 +338,23 @@ snippet "([^a-zA-Z0-9\\])cll" "\curl" rA
 `!p snip.rv = match.group(1)`\curl 
 endsnippet
 
-snippet "([lcvd])dd" "(lcvd)dots (various dots commands in one regex)" rA
-\\`!p snip.rv = match.group(1)`dots
-endsnippet
+# snippet "([lcvd])dd" "(lcvd)dots (various dots commands in one regex)" rA
+# \\`!p snip.rv = match.group(1)`dots
+# endsnippet
+# 
+# snippet ,. "\cdot" iA
+# \cdot 
+# endsnippet
 
-snippet ,. "\cdot" iA
-\cdot 
-endsnippet
-
-snippet xx "\cross" A
-\times 
-endsnippet
-
-snippet "([^a-zA-Z0-9\\])pt" "\propto" rA
+snippet "([^a-zA-Z0-9\\])pt" "\propto - proportionate to" rA
 `!p snip.rv = match.group(1)`\propto 
 endsnippet
 
-snippet "([^a-zA-Z0-9\\])px" "\approx" rA
+snippet "([^a-zA-Z0-9\\])px" "\approx - approximately" rA
 `!p snip.rv = match.group(1)`\approx 
 endsnippet
 
-snippet prp "\perp" A
+snippet prp "\perp - perpendicular" A
 \perp 
 endsnippet
 
@@ -371,48 +362,379 @@ snippet pll "\parallel" A
 \parallel 
 endsnippet
 
-snippet sbb "\subset" A
-\subset 
-endsnippet
-
-snippet stm "\setminus" A
-\setminus 
-endsnippet
-
-snippet mps "\mapsto" A
-\mapsto 
-endsnippet
-
-snippet "([^a-zA-Z0-9\\])eqq" "\equiv" rA
-`!p snip.rv = match.group(1)`\equiv 
-endsnippet
-
-snippet "([^a-zA-Z0-9\\])00" "\emptyset" rA
-`!p snip.rv = match.group(1)`\emptyset
-endsnippet
-
 # ------------------------------------- #
 # END STATIC MATH SNIPPETS
 
+# --------------------------------------------- #
+# LOGIC SNIPPETS
+# --------------------------------------------- #
 
+context "math()"
+snippet ! "Negation symbol" i
+\lnot 
+endsnippet
+
+context "math()"
+snippet and "Conjunction symbol" i
+\land 
+endsnippet
+
+context "math()"
+snippet or "Disjunction symbol" i
+\lor 
+endsnippet
+
+context "math()"
+snippet >> "\implies" i
+\implies 
+endsnippet
+
+context "math()"
+snippet !>> "Doesn't imply" i
+\nRightarrow 
+endsnippet
+
+context "math()"
+snippet iff "iff symbol" i
+\iff 
+endsnippet
+
+context "math()"
+snippet l= "Logical equivalence" i
+\equiv 
+endsnippet
+
+context "math()"
+snippet tf "Therefore symbol" i
+\therefore 
+endsnippet
+
+context "math()"
+snippet ex "There exists symbol" i
+\exists 
+endsnippet
+
+context "math()"
+snippet fa "For all symbol" i
+\forall 
+endsnippet
+
+# --------------------------------------------- #
+# END LOGIC SNIPPETS
+# --------------------------------------------- #
+
+# --------------------------------------------- #
+# SET THEORY SNIPPETS
+# --------------------------------------------- #
+
+context "math()"
+snippet e "element of symbol" i 
+\in 
+endsnippet
+
+context "math()"
+snippet ne "not element of symbol" i
+\not\in 
+endsnippet
+
+context "math()"
+snippet sbb "proper subset" i
+\subset 
+endsnippet
+
+context "math()"
+snippet sbbe "subset or equal to set" i
+\subseteq 
+endsnippet
+
+context "math()"
+snippet nsbb "not a subset of" i
+\not\subset 
+endsnippet
+
+context "math()"
+snippet sbs "proper superset" i
+\supset 
+endsnippet
+
+context "math()"
+snippet sbse "superset or equal to set" i
+\supseteq 
+endsnippet
+
+context "math()"
+snippet u "union" i
+\cup 
+endsnippet
+
+context "math()"
+snippet a "intersection" i
+\cap 
+endsnippet
+
+context "math()"
+snippet U "Big union" i
+\bigcup_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet A "Big intersection" i
+\bigcap_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet es "empty set" i
+\emptyset 
+endsnippet
+
+context "math()"
+snippet ps "Power set" i
+\mathcal{P} 
+endsnippet
+
+context "math()"
+snippet ce "Closure" i
+\overline{$1}$0
+endsnippet
+
+context "math()"
+snippet stm "\setminus" i
+\setminus 
+endsnippet
+
+context "math()"
+snippet xx "\cross" i
+\times 
+endsnippet
+
+# --------------------------------------------- #
+# SET THEORY SNIPPETS
+# --------------------------------------------- #
+
+# --------------------------------------------- #
+# FUNCTION SNIPPETS
+# --------------------------------------------- #
+
+context "math()"
+snippet t "Maps to" i
+\to 
+endsnippet
+
+context "math()"
+snippet o "composition" i
+\circ 
+endsnippet
+
+context "math()"
+snippet pwf "Piece-wise function" i
+$1($2) =
+\begin{cases}
+	$3 & $4 \\
+	$5 & $0 \\
+\end{case}
+endsnippet
+
+context "math()"
+snippet >= "greater than or equal" A
+\ge 
+endsnippet
+
+context "math()"
+snippet <= "less than or equal" A
+\le 
+endsnippet
+
+# --------------------------------------------- #
+# END FUNCTION SNIPPETS
+# --------------------------------------------- #
+
+# --------------------------------------------- #
+# LINEAR ALGEBRA SNIPPETS
+# --------------------------------------------- #
+
+context "math()"
+snippet v "Vector arrow" i
+\vec{$1}$0
+endsnippet
+
+context "math()"
+snippet vb "Vector bold" i
+\mathbf{$1}$0
+endsnippet
+
+context "math()"
+snippet norm "vector norm" i
+||\vec{$1}||$0
+endsnippet
+
+context "math()"
+snippet mx "Basic Matrix" i
+\left[
+\begin{array}{ccc}
+$1
+\end{array}
+\right]
+endsnippet
+
+# snippet lmx "Labeled matrix" i
+# \begin{equation*}
+# \begin{array}{ccc}
+#     $1 & $2 & $3 
+#     $4 & \left[
+# 				 \begin{array}{ccc}
+# 				 $0
+# 				 \end{array}
+# 				 \right] & \
+# \end{array}
+# \tag{}
+# \end{equation*}
+# endsnippet
+
+context "math()"
+snippet lmx "Labeled Matrix" i
+\begin{blockarray}{cccc}
+\ & \ & \ & \ \\
+\begin{block}{c[ccc]}
+\ & \ & \ & \ \\
+\ & \ & \ & \ \\
+\ & \ & \ & \ \\
+\end{block}
+\end{blockarray}
+endsnippet
+
+
+context "math()"
+snippet detmx "Determinant in Matrix form" i
+\left|
+\begin{array}{ccc}
+$1
+\end{array}
+\right|
+endsnippet
+
+context "math()"
+snippet det "Determinant Representation" i
+\det{$1}$0
+endsnippet
+
+context "math()"
+snippet trace "Trace" i
+\operatororname{tr}($1)$0
+endsnippet
+
+context "math()"
+snippet dim "Dimension" i
+\dim($1)$0
+endsnippet
+
+context "math()"
+snippet rc "Row column i.e. n x m notation" i
+$1 \times $2
+endsnippet
+
+
+# --------------------------------------------- #
+# END LINEAR ALGEBRA SNIPPETS
+# --------------------------------------------- #
+
+# --------------------------------------------- #
+# ABSTRACT ALGEBRA SNIPPETS
+# --------------------------------------------- #
+
+context "math()"
+snippet lt "Lead to squiggly arrow" i
+\leadsto
+endsnippet
+
+snippet == "Logically equivalent" i
+\equiv 
+endsnippet
+
+
+
+# --------------------------------------------- #
+# BASIC SNIPPETS
+# --------------------------------------------- #
+
+context "math()"
+snippet +- "Plus or minus symbol" i
+\pm 
+endsnippet
+
+context "math()"
+snippet != "not equal" i
+\ne 
+endsnippet
+
+context "math()"
+snippet <= "Less than or equal" i
+\leq 
+endsnippet
+
+context "math()"
+snippet >= "Greater than or equal" i
+\geq 
+endsnippet
+
+context "math()"
+snippet !< "Not less than" i
+\nless 
+endsnippet
+
+context "math()"
+snippet !> "Not greater than" i
+\ngtr 
+endsnippet
+
+context "math()"
+snippet !<= "Not less than or equal" i
+\nleq 
+endsnippet
+
+context "math()"
+snippet !>= "Not greater than or equal" i
+\ngeq 
+endsnippet
+
+context "math()"
+snippet 3 "pi" i
+\pi 
+endsnippet
+
+snippet hd "bottom horizontal dots" i
+\ldots 
+endsnippet
+
+snippet cd "centered horizontal dots" i
+\cdots 
+endsnippet
+
+snippet dd "diagonal dots" i
+\ddots 
+endsnippet
+
+snippet vd "vertical dots" i
+\vdots 
+endsnippet
+
+snippet dt "Regular multiplication dot" i
+\cdot 
+endsnippet
+
+snippet ep "End proof - square" i
+\square 
+endsnippet
+
+
+# --------------------------------------------- #
 # BEGIN MISC
 # --------------------------------------------- #
-snippet "(^|[^a-zA-Z])sgg" "\subgrad{} (for cleaner gradient, mostly for ML backprop)" rA
-`!p snip.rv = match.group(1)`\subgrad{${1:${VISUAL:}}}$0
-endsnippet
 
-snippet "(^|[^a-zA-Z])spp" "\supgrad{} (for cleaner gradient, mostly for ML backprop)" rA
-`!p snip.rv = match.group(1)`\supgrad{${1:${VISUAL:}}}{$2}$0
-endsnippet
 
 # turns b| into \big |
 # turns B| into \Big |
 snippet "([\W])([bB])\|" "(bB)ig |_{evaluation}" rA
 `!p snip.rv = match.group(1)`\\`!p snip.rv = match.group(2)`ig|_{${1:${VISUAL:}}}$0
-endsnippet
-
-snippet qm "\questionmath{} (for coloring math commands to distinguish from colored question text)"
-\questionmath{${1:${VISUAL:}}}$0
 endsnippet
 
 snippet ubb "The \underbrace command" A

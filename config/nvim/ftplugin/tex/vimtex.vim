@@ -16,7 +16,7 @@ nmap <leader>e <plug>(vimtex-errors)
 " disabling some default features
 " ---------------------------------------------
 " turn off vimtex indentation
-let g:vimtex_indent_enabled = 0
+let g:vimtex_indent_enabled = 1
 
 " disable default mappings
 let g:vimtex_mappings_enabled = 0

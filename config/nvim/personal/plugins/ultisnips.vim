@@ -1,7 +1,7 @@
 " UltiSnips Snippet keys
 let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<cr>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-cr>" 
+let g:UltiSnipsJumpForwardTrigger = "qw"
+let g:UltiSnipsJumpBackwardTrigger = "<c-q>" 
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
 
