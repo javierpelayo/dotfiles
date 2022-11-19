@@ -1,0 +1,11 @@
+anki-git
+dasht
+discordo-git
+google-chrome
+libby-git
+mathpix-snipping-tool
+ncpamixer
+rstudio-desktop-bin
+sioyek
+tllocalmgr-git
+yay

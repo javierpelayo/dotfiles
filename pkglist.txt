@@ -1,6 +1,5 @@
 adobe-source-code-pro-fonts
 alsa-utils
-anki-git
 autoconf
 automake
 base
@@ -9,7 +8,6 @@ calcurse
 cmus
 connman
 corectrl
-dasht
 debugedit
 discord
 dmenu
@@ -20,7 +18,6 @@ flex
 gcc
 git
 github-cli
-google-chrome
 groff
 grub
 htop
@@ -28,18 +25,15 @@ inkscape
 intel-ucode
 jdk11-openjdk
 jre11-openjdk
-libby-git
 libtool
 linux
 linux-firmware
 m4
 make
 man-db
-mathpix-snipping-tool
 mesa-utils
 mpc
 mpv
-ncpamixer
 neofetch
 neovim
 networkmanager
@@ -54,9 +48,7 @@ python-pip
 python-pygments
 r
 rofi
-rstudio-desktop-bin
 rxvt-unicode
-sioyek
 spotifyd
 sudo
 texinfo
@@ -72,7 +64,6 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
-tllocalmgr-git
 transmission-remote-gtk
 ttc-iosevka
 unarchiver
@@ -85,6 +76,5 @@ xorg-server
 xorg-xbacklight
 xorg-xinit
 xorg-xsetroot
-yay
 zathura-pdf-poppler
 zsh
