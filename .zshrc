@@ -25,5 +25,6 @@ alias math100a="cd ~/Desktop/ucsd/fall_2022/abstract_algebra_math100a"
 alias math183="cd ~/Desktop/ucsd/fall_2022/statistical_methods_math183"
 alias cse8b="cd ~/Desktop/ucsd/fall_2022/intro_programming_cse8b"
 alias ucsd="cd ~/Desktop/ucsd/"
+alias ankicard="nvim ~/Desktop/notes/anki/backbox.tex"
 
 PATH="$PATH:/home/javier/.local/bin:/usr/bin/qmake"

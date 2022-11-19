@@ -56,7 +56,7 @@ let g:vimtex_quickfix_ignore_filters = [
       \ "LaTeX Font Warning: Font shape `T1/lmodern/m/n' undefined using `T1/cmr/m/n' instead on input line 1.",
       \]
 
-let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_method = 'sioyek'
 
 " don't automatically open pdf viewer after first compilation
 " let g:vimtex_view_automatic = 0

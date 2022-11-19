@@ -27,6 +27,7 @@ call plug#begin()
 """Global Plugins"""
 Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
+Plug 'sunaku/vim-dasht'
 " Plug 'honza/vim-snippets'
 
 """Theme Plugins"""
