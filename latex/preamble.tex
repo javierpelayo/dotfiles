@@ -1,0 +1,494 @@
+\documentclass[11pt, a4paper]{article}
+% \usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{accents}
+\usepackage{blkarray}
+\usepackage{enumerate}
+\usepackage{physics, siunitx}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\geometry{margin=1.5cm}
+\sisetup{separate-uncertainty=true, exponent-product=\cdot, range-units=single}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=cyan}
+
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+\newcommand{\TODO}[1]{{\textbf{TODO:} {\color{red} #1}}}
+
+% \documentclass[12pt]{article}
+% \usepackage[letterpaper]{geometry} 
+%% \usepackage[T1]{fontenc} 
+%% \usepackage{times} 
+\usepackage{lmodern}
+%% \usepackage{cmbright}
+% \geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{setspace}
+\usepackage[skip=10pt, indent=0pt]{parskip}
+\onehalfspacing
+%% \usepackage[colorinlistoftodos]{todonotes} \usepackage{amsmath}%
+% \usepackage{MnSymbol}
+% Tabular environment but better(coherent page breaking)
+\usepackage{supertabular} 
+\usepackage{hyperref}
+% algorithm package for pseudocode blocks
+% \usepackage{algorithm2e}
+
+% --------------------------------------------- %
+% Environment for escaping latex commands
+% --------------------------------------------- %
+
+\newenvironment{simplechar}{%
+        \catcode`\^=12
+        \catcode`\$=12
+        \catcode`~=12
+}{}
+
+\newenvironment{tabulartiny}{
+        \tiny
+}{}
+
+
+% --------------------------------------------- %
+% Minted for Code Blocks
+% --------------------------------------------- %
+
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{textcomp}
+\usepackage[cache=false,newfloat]{minted}
+\usepackage{tcolorbox, etoolbox}
+\usepackage{caption}
+\newcommand{\tqs}{\textquotesingle}
+\newcommand{\ttilde}{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
+\tcbuselibrary{minted,skins}
+
+% Caption setup, mainly remove numbering in captions
+\captionsetup{labelformat=empty,singlelinecheck=false} 
+
+% \textbf{} doesnt work in minted ... use \bf{}
+\setminted[text]{%
+    linenos,
+    style=xcode,
+    obeytabs=true,
+    tabsize=2,
+    numbersep=10pt,
+    breaklines,
+    escapeinside=||,
+    mathescape=true,
+    samepage,
+    firstnumber=1,%
+}
+
+\setminted[java]{%
+    linenos,
+    style=tango,
+    obeytabs=true,
+    tabsize=2,
+    numbersep=10pt,
+    breaklines,
+    escapeinside=||,
+    mathescape=true,
+    samepage,
+    firstnumber=1,%
+}
+
+% Caption for code blocks
+\newenvironment{capblock}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=}
+
+% Line numbers colors
+\renewcommand{\theFancyVerbLine}{\textcolor[HTML]{000000}{\footnotesize\arabic{FancyVerbLine}}}
+
+% Set start counter for line numbers in minted environment
+%\renewcommand{\theFancyVerbLine}{%
+%    \ifnum\value{FancyVerbLine}=0
+%        \setcounter{FancyVerbLine}{0}
+%    \else
+%        \arabic{FancyVerbLine}%
+%    \fi
+%}
+
+% --------------------------------------------- %
+% Inkscape-figures script configuration
+% --------------------------------------------- %
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{float}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+
+% --------------------------------------------- %
+% Code/Algorithm Block Environments
+% --------------------------------------------- %
+\usepackage{mdframed}
+
+% Commands for Pseudo-Code Environments
+\newcommand{\ctitle}{\color{Aquamarine!100}{  }} 
+
+\newcommand{\cfor}{\color{Aquamarine!100}{\bf{\textit{for}}}} 
+\newcommand{\cin}{\color{Aquamarine!100}{\bf{\textit{in}}}} 
+\newcommand{\cto}{\color{Aquamarine!100}{\bf{\textit{to}}}} 
+\newcommand{\cwhile}{\color{Aquamarine!100}{\bf{\textit{while}}}} 
+
+\newcommand{\cif}{\color{Aquamarine!100}{\bf{\textit{if}}}} 
+\newcommand{\celse}{\color{Aquamarine!100}{\bf{\textit{else}}}} 
+\newcommand{\cthen}{\color{Aquamarine!100}{\bf{\textit{then}}}} 
+
+\newcommand{\clet}{\color{Aquamarine!100}{\bf{\textit{let}}}} 
+\newcommand{\cand}{\color{Aquamarine!100}{\bf{\textit{and}}}} 
+
+\newcommand{\creturn}{\color{Aquamarine!100}{\bf{\textit{return}}}} 
+
+\newenvironment{pseudo}[2]
+    {
+    \VerbatimEnvironment
+    \begin{mdframed}[
+         frametitle={\color{black}{\large Pseudo-Code Algorithm}},
+         frametitlebackgroundcolor = Dandelion!100,
+         linecolor = Dandelion!100,
+         topline = false,
+         rightline = false,
+         leftline = false,
+         bottomline = true,
+         linewidth = 5pt,%
+    ]
+    \begin{capblock}
+    \vspace{10pt}
+    \captionof{listing}{Input: #1}
+    \vspace{-10pt}
+    \captionof{listing}{Output: #2}
+    \begin{minted}[fontfamily=lmodern]{R}%
+    }
+    {
+     \end{minted}
+     \end{capblock}
+     \end{mdframed}
+}
+ 
+\newenvironment{code}[2]
+    {
+    \vspace{5pt}
+    \VerbatimEnvironment
+    \begin{mdframed}[
+        frametitle={\color{black}{}},
+        frametitlebackgroundcolor = White!50,
+        linecolor = White!50,
+        topline = false,
+        rightline = false,
+        leftline = false,
+        bottomline = false,
+        linewidth = 10pt,%
+    ]
+    \begin{capblock}
+    \vspace{5pt}
+    \captionof{listing}{#1}
+    \begin{minted}{#2}%
+    }
+    {
+    \end{minted}
+    \end{capblock}
+    \end{mdframed}
+}
+
+% --------------------------------------------- %
+% ANALYZE PSEUDOCODE/CODE ENVIRONMENTS
+% --------------------------------------------- %
+
+% Pseudocode No Frame
+\newenvironment{pseudonf}[2]
+    {
+    \VerbatimEnvironment
+    \begin{capblock}
+    \captionof{listing}{#1}
+    \captionof{listing}{#2}
+        \begin{minted}[fontfamily=lmodern, xleftmargin=40pt]{text}%
+    }
+    {
+    \end{minted}
+    \end{capblock}
+}
+
+% Code block no frame
+\newenvironment{codenf}[2]
+    {
+    \VerbatimEnvironment
+    \begin{capblock}
+    \captionof{listing}{#1}
+    \begin{minted}[xleftmargin=30pt]{#2}%
+    }
+    {
+    \end{minted}
+    \end{capblock}
+}
+
+% mdframe
+\newenvironment{frm}[1]
+    {
+    \begin{mdframed}[
+        frametitle={\color{black}{\large #1}},
+        frametitlebackgroundcolor = Dandelion!100,
+        linecolor = Dandelion!100,
+        topline = false,
+        rightline = false,
+        leftline = false,
+        bottomline = true,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed} 
+}
+
+% Black Box
+\newenvironment{frmbox}
+    {
+    \bigskip
+    \begin{mdframed}[
+        linecolor = Black!100,
+        topline = true,
+        rightline = true,
+        leftline = true,
+        bottomline = true,
+        linewidth = 1pt,%
+    ]
+    }
+    {
+    \end{mdframed} 
+}
+
+% --------------------------------------------- %
+% Math Environments
+% --------------------------------------------- %
+
+% THEOREM
+\newenvironment{theorem}[1]
+    {
+        \vspace*{10pt}
+        \begin{mdframed}[
+        frametitle={\color{Orange!100}{\large Theorem #1}},
+        frametitlebackgroundcolor = white,
+        linecolor = Orange!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% LEMMA
+\newenvironment{lemma}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[
+        frametitle={\color{RedOrange!100}{\large Lemma #1}},
+        frametitlebackgroundcolor = white,
+        linecolor = RedOrange!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% COROLLARY
+\newenvironment{corollary}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[%
+        frametitle={\color{SpringGreen!100}{\large Corollary #1}},
+        frametitlebackgroundcolor = white,
+        linecolor = SpringGreen!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% DEFINITIONS
+\newenvironment{definition}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[
+        frametitle={\color{Blue!100}{\large Definition #1}},
+        frametitlebackgroundcolor = white,
+        linecolor = Blue!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% AXIOM
+\newenvironment{axiom}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[%
+        frametitle={\color{RoyalPurple!100}{\large Axiom #1}},%
+        frametitlebackgroundcolor = white,
+        linecolor = RoyalPurple!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% PROPERTY
+\newenvironment{property}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[%
+        frametitle={\color{Cyan!100}{\large Property #1}},%
+        frametitlebackgroundcolor = white,
+        linecolor = Cyan!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% PROPOSITION
+\newenvironment{proposition}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[%
+        frametitle={\color{BrickRed!100}{\large Proposition #1}},%
+        frametitlebackgroundcolor = white,
+        linecolor = BrickRed!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% EXAMPLE
+\newenvironment{example}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[%
+        frametitle={\color{ForestGreen!100}{\large Example #1}},
+        frametitlebackgroundcolor = white,
+        linecolor = ForestGreen!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% PROOF
+\newenvironment{proof}[1]
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[
+        frametitle={\color{YellowOrange!100}{\large Proof #1}},
+        frametitlebackgroundcolor = white,
+        linecolor = YellowOrange!100,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {
+    \end{mdframed}
+}
+
+% NOTE
+\newenvironment{note}
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[
+        frametitle={Note:},
+        frametitlebackgroundcolor = white,
+        linecolor = Gray!50,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {    
+    \end{mdframed}
+}
+
+% QUESTION
+\newenvironment{question}
+    {
+    \vspace*{10pt}
+    \begin{mdframed}[
+        frametitle={Question:},
+        frametitlebackgroundcolor = white,
+        linecolor = Purple!50,
+        topline = false,
+        rightline = false,
+        leftline = true,
+        bottomline = false,
+        linewidth = 5pt,%
+    ]
+    }
+    {    
+    \end{mdframed}
+}
+
+% --------------------------------------------- %
+% Misc Config
+% --------------------------------------------- %
+
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Q}{\mathbf{Q}}
+\newcommand{\N}{\mathbf{N}}
+
+
+
+
+
+
+
+% \setcounter{section}{1}
