@@ -189,3 +189,51 @@ $1
 $0
 endsnippet
 
+snippet fig "figure environment" b
+\begin{figure}[ht]
+    \includegraphics[width=8cm]{./figures/$1}
+    \centering
+\end{figure}
+$0
+endsnippet
+
+snippet frmbox "Box with outline" i
+\begin{frmbox}
+	$1
+\end{frmbox}
+$0
+endsnippet
+
+snippet plotalgo "Plot a runtime function for an algorithm" i
+\begin{tikzpicture}
+\begin{axis}[
+    xmin = 0, xmax = 1000,
+    ymin = 0, ymax = 1000]
+    \addplot[
+        domain = 0:1000,
+        samples = 200,
+        smooth,
+        thick,
+    ] {$1};
+		$2
+\end{axis}
+\end{tikzpicture}
+$0
+endsnippet
+
+snippet addfunc "Add a function to a graph" i
+\addplot[
+    domain = 0:1000,
+    samples = 200,
+    smooth,
+    thick,
+] {$1};
+$0
+endsnippet
+
+snippet fbox "box around text" i
+\fbox{$1} $0
+endsnippet
+
+
+

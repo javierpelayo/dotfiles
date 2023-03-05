@@ -706,6 +706,11 @@ snippet 3 "pi" i
 \pi 
 endsnippet
 
+context "math()"
+snippet b3 "Big Pi" i
+\Pi 
+endsnippet
+
 snippet hd "bottom horizontal dots" i
 \ldots 
 endsnippet
@@ -730,6 +735,11 @@ snippet ep "End proof - square" i
 \square 
 endsnippet
 
+snippet tsim "Thick tilda" i
+\thicksim 
+endsnippet
+
+
 
 # --------------------------------------------- #
 # BEGIN MISC
@@ -745,5 +755,19 @@ endsnippet
 snippet ubb "The \underbrace command" A
 \underbrace{${1:${VISUAL:}}}_{$2} $0
 endsnippet
+
+context "math()"
+snippet acs "Set an accent" i
+\accentset{$1}{$2} $0
+endsnippet
+
+snippet ceil "Ceiling Function" i
+\ceil*{$1} $0
+endsnippet
+
+snippet flr "Floor Function" i
+\floor*{$1} $0
+endsnippet
+
 # --------------------------------------------- #
 # END MISC
