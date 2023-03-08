@@ -2850,7 +2850,6 @@ hyperbar
 logix
 svrsymbols
 simple
-core
 scheme
 sharp
 compact
@@ -5375,7 +5374,3 @@ lutabulartools
 luavlna
 czech
 slovak
-nhelvet
-ntimes
-test3
-core
